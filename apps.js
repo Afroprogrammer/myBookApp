@@ -21,12 +21,13 @@ class Book{
                 title: 'American Gods',
                 author: 'Kojo John Snow',
                 isbn: '11224455'
-            },
+            }
         ] ;
 
         const books = StoredBooks;
 
-        books.forEach(()=> UI.addBookToList(book));
+        books.forEach((book)=> UI.addBookToList(book));
+        
      }
 
      static addBookToList(book){
@@ -34,12 +35,18 @@ class Book{
          const row = document.createElement('tr');
 
          row.innerHTML = `
-         <td>${book.title}</td>
+         <td> ${book.title} </td>
          <td>${book.author}</td>
          <td>${book.isbn}</td>
-         <td></td>
-         `
+         <td><a href="#" class="btn btn-danger btn-sm delete">X</a></td>
+         `;
+         list.appendChild(row);
+        
      }
  }
 
 //Store Class: Handles Storage
+
+//Event: Display Books
+document.addEventListener('DOMContentLoaded', UI.displayBooks, console.log('huray'));
+// document.addEventListener('DOMContentLoaded', console.log('hello world'));
