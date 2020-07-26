@@ -4,7 +4,7 @@ class Book{
     constructor(title, author, isbn){
         this.title = title;
         this.author = author;
-        this.isbn;
+        this.isbn = isbn;
   }
 }
 
@@ -48,4 +48,18 @@ class Book{
 //Store Class: Handles Storage
 
 //Event: Display Books
-document.addEventListener('DOMContentLoaded', UI.displayBooks, console.log('huray'));
+document.addEventListener('DOMContentLoaded', UI.displayBooks);
+
+//Event: Add a Book 
+document.querySelector('#book-form').addEventListener('submit', (e)=>{
+    //Prevent actual submit
+    e.preventDefault();
+    //Get form values
+    const title = document.querySelector('#title').value;
+    const author = document.querySelector('#author').value;
+    const isbn = document.querySelector('#isbn').value;
+
+    //instantiate a book class 
+    const book = new Book(title, author, isbn); 
+    console.log(book);
+});
