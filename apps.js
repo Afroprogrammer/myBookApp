@@ -49,4 +49,3 @@ class Book{
 
 //Event: Display Books
 document.addEventListener('DOMContentLoaded', UI.displayBooks, console.log('huray'));
-// document.addEventListener('DOMContentLoaded', console.log('hello world'));
