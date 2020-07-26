@@ -25,6 +25,20 @@ class Book{
         ] ;
 
         const books = StoredBooks;
+
+        books.forEach(()=> UI.addBookToList(book));
+     }
+
+     static addBookToList(book){
+         const list = document.querySelector('#book-list');
+         const row = document.createElement('tr');
+
+         row.innerHTML = `
+         <td>${book.title}</td>
+         <td>${book.author}</td>
+         <td>${book.isbn}</td>
+         <td></td>
+         `
      }
  }
 
