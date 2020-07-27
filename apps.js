@@ -44,6 +44,17 @@ class Book{
         
      }
 
+     static showAlert(message, className){
+            const div = document.createElement('div');
+            div.className = `alert alert-${className}`;
+            div.appendChild(document.createTextNode(message));
+            const container = document.querySelector('.container');
+            const form = document.querySelector('#book-form');
+            container.insertBefore(div, form); 
+            //Vanish in 3 seconds
+
+     }
+
      static clearFields(){
         document.querySelector('#title').value = '';
         document.querySelector('#author').value = '';
@@ -72,7 +83,7 @@ document.querySelector('#book-form').addEventListener('submit', (e)=>{
 
     // Validate
     if(title === ''|| author === '' || isbn === ''){
-        alert('please add the required information');
+       UI.showAlert('please add the required information', 'danger');
     } else{ 
 
             //instantiate a book class 
@@ -86,8 +97,6 @@ document.querySelector('#book-form').addEventListener('submit', (e)=>{
     UI.clearFields();
 
     }
-
-
 });
 
 //Event: remove a book
