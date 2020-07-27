@@ -70,15 +70,24 @@ document.querySelector('#book-form').addEventListener('submit', (e)=>{
     const author = document.querySelector('#author').value;
     const isbn = document.querySelector('#isbn').value;
 
-    //instantiate a book class 
+    // Validate
+    if(title === ''|| author === '' || isbn === ''){
+        alert('please add the required information');
+    } else{ 
+
+            //instantiate a book class 
     const book = new Book(title, author, isbn); 
-    console.log(book);
+    // console.log(book);
 
     //Add Book to UI
     UI.addBookToList(book);
 
     //Clear fields
     UI.clearFields();
+
+    }
+
+
 });
 
 //Event: remove a book
